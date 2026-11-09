@@ -39,7 +39,7 @@ form.addEventListener("submit", async function(e) {
         console.log(data);
 
         if (!data.results || data.results.length === 0) {
-            throw new Error("Ville introuvable.");
+            throw new Error("Ville introuvee.");
         }
 
         const villeTrouvee = data.results[0];
@@ -50,10 +50,10 @@ form.addEventListener("submit", async function(e) {
     } catch (error) {
 
         erreur.textContent = error.message;
-        erreur.classList.remove("hidden");
+        erreur.classList.remove("hide");
 
     } finally {
 
-        chargement.classList.add("hidden");
+        chargement.classList.add("hide");
     }
-});
+})
