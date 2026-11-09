@@ -120,10 +120,3 @@ Ouvrir `index.html` avec Live Server.
 
 L'application sera hébergée sur GitHub Pages.
 
-## 11. Auteur
-
-- **Nom :** [Votre nom]
-- **Formation :** [Votre formation]
-- **Année :** 2026
-- **GitHub :** [Lien du dépôt]
-- **Démo :** [Lien GitHub Pages]
