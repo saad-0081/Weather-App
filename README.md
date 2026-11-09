@@ -1,86 +1,129 @@
-# 🌤️ Application Météo
+# 🌤️ Weather App — Application Météo
 
-## 1. Présentation
+## 1. Présentation du projet
 
-Application web permettant de consulter la météo de plusieurs villes et les prévisions des prochains jours grâce à une API publique.
+Le client souhaite une application web météo simple permettant aux utilisateurs de rechercher plusieurs villes, consulter les conditions météorologiques actuelles et visualiser les prévisions des prochains jours grâce à une API publique.
 
-## 2. Technologies utilisées
+## 2. Éléments à afficher sur l'écran
 
-- HTML5
-- CSS3
-- JavaScript (ES6+)
-- Fetch API
-- Open-Meteo API
-- Git et GitHub
+- Titre de l'application.
+- Champ de recherche d'une ville.
+- Bouton de recherche.
+- Indicateur de chargement.
+- Carte météo actuelle.
+- Température, humidité et vitesse du vent.
+- Description et icône météo.
+- Prévisions des 7 prochains jours.
+- Messages d'erreur.
 
-## 3. API utilisée
+## 3. API choisie
 
-Le projet utilise **Open-Meteo**, une API gratuite sans clé API pour un usage non commercial.
+**Open-Meteo API**
 
-Documentation : https://open-meteo.com/en/docs
+- Gratuite pour un usage non commercial.
+- Sans clé API.
+- Données météorologiques actuelles et prévisions.
 
-**Endpoints :**
+Documentation officielle : https://open-meteo.com/en/docs
 
-- Geocoding : recherche d'une ville et récupération de ses coordonnées.
-- Forecast : récupération des conditions actuelles et des prévisions.
+### Endpoints utilisés
 
-## 4. Fonctionnalités
+**Geocoding :** rechercher une ville et récupérer ses coordonnées.
 
-- **US-01 :** Recherche d'une ville.
-- **US-02 :** Affichage de la météo actuelle (température, humidité, vent et description).
-- **US-03 :** Affichage des prévisions sur 7 jours.
-- **US-04 :** Gestion des erreurs et indicateur de chargement.
-- **US-05 :** Documentation de l'API.
-- **US-06 :** Versionnement avec GitHub et déploiement.
+https://geocoding-api.open-meteo.com/v1/search
 
-## 5. Fonctionnement
+**Forecast :** récupérer les données météorologiques.
+
+https://api.open-meteo.com/v1/forecast
+
+## 4. User Stories
+
+### US-01 — Rechercher une ville
+Permettre à l'utilisateur de saisir une ville et lancer une recherche avec un bouton.
+
+### US-02 — Consulter la météo actuelle
+Afficher la température, l'humidité, le vent et la description météorologique.
+
+### US-03 — Consulter les prévisions
+Afficher les prévisions météorologiques des prochains jours sous forme de cartes.
+
+### US-04 — Gérer les erreurs
+Afficher des messages clairs en cas de ville inconnue, de problème Internet ou d'indisponibilité de l'API.
+
+### US-05 — Documenter l'intégration
+Expliquer l'API utilisée, les endpoints et le fonctionnement des données JSON.
+
+### US-06 — Versionner et présenter
+Organiser le projet sur GitHub, utiliser des commits réguliers et préparer une démonstration.
+
+## 5. Technologies utilisées
+HTML5 : structure de l'application.
+Tailwind CSS : design et responsive.
+JavaScript ES6+ : logique de l'application.
+
+Fetch API : communication avec l'API météo.
+
+Open-Meteo : données météorologiques.
+
+Git et GitHub : versionnement.
+
+GitHub Pages : déploiement.
+
+## 6. Fonctionnement technique
 
 1. L'utilisateur saisit une ville.
-2. JavaScript envoie une requête GET avec Fetch API.
+2. JavaScript envoie une requête HTTP GET avec Fetch API.
 3. L'application vérifie `response.ok`.
 4. Les données sont récupérées avec `response.json()`.
-5. Les informations sont affichées dans le DOM sous forme de cartes météo.
+5. Les données sont affichées dans le DOM.
 
-## 6. Structure du projet
+## 7. Structure du projet
 
-```text
 weather-app/
 ├── index.html
-├── css/
+├── src/
 │   └── style.css
 ├── js/
 │   └── script.js
 ├── screenshots/
 ├── tests/
 │   └── test-manuel.md
+├── package.json
 └── README.md
-```
 
-## 7. Installation
+## 8. Installation
+
+Cloner le dépôt :
 
 ```bash
 git clone URL_DU_DEPOT
+```
+
+Accéder au dossier :
+
+```bash
 cd weather-app
 ```
 
 Ouvrir `index.html` avec Live Server.
 
-## 8. Tests
+## 9. Tests
 
-- Recherche d'une ville valide.
-- Recherche d'une ville inconnue.
-- Vérification du champ vide.
-- Vérification des conditions actuelles.
-- Vérification des prévisions.
-- Test en cas de problème Internet.
+- Rechercher une ville valide.
+- Rechercher une ville inconnue.
+- Tester le champ vide.
+- Vérifier les données météo.
+- Vérifier les prévisions.
+- Tester la gestion des erreurs.
 
-## 9. Déploiement
+## 10. Déploiement
 
-Le projet sera hébergé avec GitHub Pages.
+L'application sera hébergée sur GitHub Pages.
 
-## 10. Conclusion
+## 11. Auteur
 
-Ce projet permet de pratiquer JavaScript, Fetch API, JSON, async/await et la manipulation du DOM à travers une application météo simple et fonctionnelle.
-
-**Auteur :saad el moudnib
-
+- **Nom :** [Votre nom]
+- **Formation :** [Votre formation]
+- **Année :** 2026
+- **GitHub :** [Lien du dépôt]
+- **Démo :** [Lien GitHub Pages]
