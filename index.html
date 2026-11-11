@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,37 +8,62 @@
     <title>Météo Maroc</title>
     <link rel="stylesheet" href="/src/style.css">
 </head>
+
 <body class="min-h-screen bg-gray-50 flex justify-center p-5">
+
     <main class="w-full max-w-lg mt-12">
+
         <h1 class="text-3xl font-semibold text-center text-gray-800 mb-2">
-             Météo Maroc
+            Météo Maroc
         </h1>
+
         <p class="text-center text-gray-500 mb-8">
             Consultez la météo de votre ville
         </p>
+
         <form id="form-meteo" class="flex gap-2">
+
             <input
                 type="text"
                 id="ville"
                 placeholder="Rechercher une ville..."
-                class="flex-1 border border-gray-300 rounded-full px-5 py-3 outline-none focus:border-blue-500"
+                class="flex-1 min-w-0 border border-gray-300 rounded-full px-5 py-3 outline-none focus:border-blue-500"
             >
+
             <button
                 type="submit"
                 class="bg-blue-600 text-white px-5 rounded-full hover:bg-blue-700"
             >
                 Rechercher
             </button>
+
         </form>
+
         <p id="erreur" class="text-red-500 text-center mt-4 hidden"></p>
+
+        <div class="text-center">
+            <button
+                id="reessayer"
+                type="button"
+                class="hidden bg-blue-600 text-white px-4 py-2 rounded-lg mt-3 hover:bg-blue-700"
+            >
+                Réessayer
+            </button>
+        </div>
+
         <p id="chargement" class="text-blue-600 text-center mt-5 hidden">
             Chargement...
         </p>
+
         <div id="resultat" class="mt-8 space-y-5"></div>
+
         <footer class="text-center text-gray-400 text-sm mt-10">
             Météo Maroc © 2026
         </footer>
+
     </main>
+
     <script src="/js/script.js"></script>
+
 </body>
 </html>

@@ -55,26 +55,46 @@ form.addEventListener("submit", async function(e) {
     try {
         const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(nomVille)}&count=1&language=fr&format=json&countryCode=MA`;
 
-        const response = await fetch(url);
+        let response;
+
+        try {
+            response = await fetch(url);
+        } catch {
+            throw new Error("API indisponible. Réessayez plus tard.");
+        }
+
+        if (response.status === 429) {
+            throw new Error("Quota atteint. Réessayez plus tard.");
+        }
 
         if (!response.ok) {
-            throw new Error("Erreur lors de la recherche de la ville.");
+            throw new Error("API indisponible. Réessayez plus tard.");
         }
 
         const data = await response.json();
 
         if (!data.results || !data.results.length) {
-            throw new Error("Ville pas trouvée.");
+            throw new Error("Ville inconnue. Vérifiez le nom.");
         }
 
         const villeTrouvee = data.results[0];
 
         const urlMeteo = `https://api.open-meteo.com/v1/forecast?latitude=${villeTrouvee.latitude}&longitude=${villeTrouvee.longitude}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&daily=temperature_2m_max,temperature_2m_min,weather_code&forecast_days=5&timezone=auto`;
 
-        const responseMeteo = await fetch(urlMeteo);
+        let responseMeteo;
+
+        try {
+            responseMeteo = await fetch(urlMeteo);
+        } catch {
+            throw new Error("API indisponible. Réessayez plus tard.");
+        }
+
+        if (responseMeteo.status === 429) {
+            throw new Error("Quota atteint. Réessayez plus tard.");
+        }
 
         if (!responseMeteo.ok) {
-            throw new Error("Erreur lors de la récupération de la météo.");
+            throw new Error("API indisponible. Réessayez plus tard.");
         }
 
         const meteo = await responseMeteo.json();
@@ -137,8 +157,12 @@ form.addEventListener("submit", async function(e) {
             const infosJour = [
                 dateFormatee,
                 descriptionJour ? `${descriptionJour.icon} ${descriptionJour.label}` : "Donnée indisponible",
-                previsions.temperature_2m_max[i] != null ? `Température maximale : ${previsions.temperature_2m_max[i]} °C` : "Température maximale : Donnée indisponible",
-                previsions.temperature_2m_min[i] != null ? `Température minimale : ${previsions.temperature_2m_min[i]} °C` : "Température minimale : Donnée indisponible"
+                previsions.temperature_2m_max[i] != null ?
+                `Température maximale : ${previsions.temperature_2m_max[i]} °C` :
+                "Température maximale : Donnée indisponible",
+                previsions.temperature_2m_min[i] != null ?
+                `Température minimale : ${previsions.temperature_2m_min[i]} °C` :
+                "Température minimale : Donnée indisponible"
             ];
 
             infosJour.forEach((info, index) => {
