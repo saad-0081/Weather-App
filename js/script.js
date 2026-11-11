@@ -56,10 +56,15 @@ form.addEventListener("submit", async function(e) {
         const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(nomVille)}&count=1&language=fr&format=json&countryCode=MA`;
 
         const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("Erreur lors de la recherche de la ville.");
+        }
+
         const data = await response.json();
 
-        if (!response.ok || !data.results || !data.results.length) {
-            throw new Error("Ville  pqs trouvee.");
+        if (!data.results || !data.results.length) {
+            throw new Error("Ville pas trouvée.");
         }
 
         const villeTrouvee = data.results[0];
@@ -67,10 +72,15 @@ form.addEventListener("submit", async function(e) {
         const urlMeteo = `https://api.open-meteo.com/v1/forecast?latitude=${villeTrouvee.latitude}&longitude=${villeTrouvee.longitude}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&daily=temperature_2m_max,temperature_2m_min,weather_code&forecast_days=5&timezone=auto`;
 
         const responseMeteo = await fetch(urlMeteo);
+
+        if (!responseMeteo.ok) {
+            throw new Error("Erreur lors de la récupération de la météo.");
+        }
+
         const meteo = await responseMeteo.json();
 
-        if (!responseMeteo.ok || !meteo.current || !meteo.daily) {
-            throw new Error("Impossible de recuperer la météo.");
+        if (!meteo.current || !meteo.daily) {
+            throw new Error("Données météo indisponibles.");
         }
 
         const current = meteo.current;
