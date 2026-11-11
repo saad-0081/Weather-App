@@ -1,1 +1,49 @@
 @import "tailwindcss";
+body {
+    background: #eaf2ff;
+    font-family: Arial, sans-serif;
+    color: #123b70;
+}
+
+#resultat {
+    display: grid;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+#resultat>div:first-child {
+    background: linear-gradient(135deg, #123b70, #1671d9);
+    color: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px #123b7030;
+}
+
+#resultat>div:first-child h2,
+#resultat>div:first-child p {
+    color: white;
+    margin-bottom: 10px;
+}
+
+#resultat>div:last-child {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+#resultat>div:last-child>div {
+    background: white;
+    border: 2px solid #c9d9f0;
+    border-top: 5px solid #f28c28;
+    border-radius: 15px;
+    padding: 18px;
+    color: #123b70;
+    box-shadow: 0 4px 12px #123b7015;
+}
+
+#resultat>div:last-child>div h2,
+#resultat>div:last-child>div p {
+    color: #123b70;
+    margin: 8px 0;
+    font-weight: 600;
+}
