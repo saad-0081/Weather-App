@@ -135,3 +135,6 @@ const dateFormatee = new Date(date).toLocaleDateString("fr-FR", {
     day: "numeric",
     month: "long"
 });
+const dateElement = document.createElement("h3");
+dateElement.textContent = dateFormatee;
+carteJour.appendChild(dateElement);
