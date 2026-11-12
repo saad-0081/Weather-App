@@ -138,3 +138,4 @@ const dateFormatee = new Date(date).toLocaleDateString("fr-FR", {
 const dateElement = document.createElement("h3");
 dateElement.textContent = dateFormatee;
 carteJour.appendChild(dateElement);
+dateElement.classList.add("font-bold", "capitalize");
