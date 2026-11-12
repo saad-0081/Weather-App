@@ -108,3 +108,14 @@ titrePrevisions.classList.add(
 );
 
 resultat.appendChild(titrePrevisions);
+const cartes = document.createElement("div");
+
+cartes.classList.add(
+    "grid",
+    "grid-cols-1",
+    "sm:grid-cols-2",
+    "md:grid-cols-5",
+    "gap-4"
+);
+
+resultat.appendChild(cartes);
