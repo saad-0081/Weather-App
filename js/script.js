@@ -58,7 +58,29 @@ const meteoUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&lo
 const meteoResponse = await fetch(meteoUrl);
 const meteoData = await meteoResponse.json();
 const temperature = meteoData.current.temperature_2m;
+async function demander(url) {
+    let response;
 
+    try {
+        response = await fetch(url);
+    } catch (error) {
+        throw new Error("Problème de connexion Internet");
+    }
+
+    if (response.status === 429) {
+        throw new Error("Quota atteint. Réessayez plus tard.");
+    }
+
+    if (!response.ok) {
+        throw new Error("Erreur du serveur");
+    }
+
+    try {
+        return await response.json();
+    } catch (error) {
+        throw new Error("Réponse API invalide");
+    }
+}
 const carte = creerElement("div", "", [
     "bg-blue-100",
     "p-5",
