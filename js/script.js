@@ -173,3 +173,14 @@ const descriptionJour = document.createElement("p");
 descriptionJour.textContent = codeJour.label;
 
 carteJour.appendChild(descriptionJour);
+if (!villeTrouvee) {
+    throw new Error("Ville marocaine introuvable");
+}
+
+if (!meteoData.current) {
+    throw new Error("Données météo indisponibles");
+}
+
+if (!meteoData.daily || !meteoData.daily.time) {
+    throw new Error("Prévisions météo indisponibles");
+}
