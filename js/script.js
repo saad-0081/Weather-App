@@ -139,3 +139,6 @@ const dateElement = document.createElement("h3");
 dateElement.textContent = dateFormatee;
 carteJour.appendChild(dateElement);
 dateElement.classList.add("font-bold", "capitalize");
+const codeJour = WEATHER_CODES[codesJours[index]] || {
+    label: "Météo inconnue",
+};
