@@ -27,13 +27,15 @@ form.addEventListener("submit", async function(event) {
 
     const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(ville)}&count=10&language=fr&format=json&countryCode=MA`;
 
-    const response = await fetch(url);
-    const data = await response.json();
+    async function demander(url) {
+        const response = await fetch(url);
 
-    const resultat = data.results || find(
-        item => item.country_code === "MA"
-    );
+        if (!response.ok) {
+            throw new Error("Erreur du serveur");
+        }
 
+        return response.json();
+    }
     if (!resultat) {
         erreur.textContent = "Ville marocaine introuvable";
         return;
