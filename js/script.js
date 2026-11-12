@@ -122,10 +122,16 @@ resultat.appendChild(cartes);
 jours.forEach((date, index) => {
     const carteJour = document.createElement("div");
     cartes.appendChild(carteJour);
-});carteJour.classList.add(
+});
+carteJour.classList.add(
     "bg-white",
     "p-4",
     "rounded-xl",
     "shadow",
     "text-center"
 );
+const dateFormatee = new Date(date).toLocaleDateString("fr-FR", {
+    weekday: "long",
+    day: "numeric",
+    month: "long"
+});
