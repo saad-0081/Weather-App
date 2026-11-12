@@ -145,3 +145,7 @@ const codeJour = WEATHER_CODES[codesJours[index]] || {
 const icon = document.createElement("p");
 icon.textContent = codeJour.icon;
 carteJour.appendChild(icon);
+const descriptionJour = document.createElement("p");
+descriptionJour.textContent = codeJour.label;
+
+carteJour.appendChild(descriptionJour);
