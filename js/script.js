@@ -97,3 +97,14 @@ titrePrevisions.classList.add(
 );
 
 resultat.appendChild(titrePrevisions);
+const titrePrevisions = document.createElement("h2");
+
+titrePrevisions.textContent = "Prévisions des 5 prochains jours";
+
+titrePrevisions.classList.add(
+    "text-xl",
+    "font-bold",
+    "my-5"
+);
+
+resultat.appendChild(titrePrevisions);
