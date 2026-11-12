@@ -142,3 +142,6 @@ dateElement.classList.add("font-bold", "capitalize");
 const codeJour = WEATHER_CODES[codesJours[index]] || {
     label: "Météo inconnue",
 };
+const icon = document.createElement("p");
+icon.textContent = codeJour.icon;
+carteJour.appendChild(icon);
