@@ -119,3 +119,7 @@ cartes.classList.add(
 );
 
 resultat.appendChild(cartes);
+jours.forEach((date, index) => {
+    const carteJour = document.createElement("div");
+    cartes.appendChild(carteJour);
+});
