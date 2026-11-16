@@ -1,13 +1,4 @@
 
-# Dependencies
-node_modules/
-
-# Build files
-dist/
-
-# Environment variables
+node_modules
+dist
 .env
-.env.*
-
-# Debug logs
-npm-debug.log*
