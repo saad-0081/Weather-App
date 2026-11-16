@@ -5,6 +5,8 @@
         "preview": "vite preview"
     },
     "devDependencies": {
+        "@tailwindcss/vite": "^4.3.5",
+        "tailwindcss": "^4.3.5",
         "vite": "^6.0.0"
     }
 }
